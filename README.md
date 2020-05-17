@@ -1,3 +1,59 @@
+# PyTorch Env in Ubuntu 18.04 LTS
+
+Install env in Ubuntu 18.04 [download](https://www.anaconda.com/products/individual)
+[Tutorial](https://docs.anaconda.com/anaconda/install/linux/)
+
+```shell script
+curl -O https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+
+bash ./Anaconda3-2020.02-Linux-x86_64.sh
+
+conda update conda
+conda update anaconda
+
+```
+
+```shell script
+conda create --name torch python=3.7
+conda activate torch
+#conda deactivate
+
+conda install pytorch torchvision
+#conda install pytorch torchvision cpuonly -c pytorch -c defaults -c conda-forge
+
+conda update --all
+
+pip install --upgrade torch torchvision
+
+```
+
+Mount local disk to Ubuntu.
+Install SSHFS [osxfuse](https://osxfuse.github.io/)
+
+
+```shell script
+#sshfs username@server:/path-on-server/ ~/path-to-mount-point
+sshfs gpu:/home/cubean/project remote_project
+
+# unmount
+sudo diskutil unmount force
+
+```
+
+Install gdrive in [remote server](https://github.com/gdrive-org/gdrive)
+
+Local machine:
+```shell script
+scp gdrive-linux-x64 gpu:~
+# Cannot get validation code.
+```
+
+
+
+
+
+
+
 Semantically Multi-modal Image Synthesis
 ---
 ### [Project page](http://seanseattle.github.io/SMIS) / [Paper](https://arxiv.org/abs/2003.12697)  / [Demo](https://www.youtube.com/watch?v=uarUonGi_ZU&t=2s)
