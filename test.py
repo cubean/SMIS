@@ -28,6 +28,7 @@ visualizer = Visualizer(opt)
 # create a webpage that summarizes the all results
 web_dir = os.path.join(opt.results_dir, opt.name,
                        '%s_%s' % (opt.phase, opt.which_epoch))
+print(f'web_dir: {web_dir}')
 webpage = html.HTML(web_dir,
                     'Experiment = %s, Phase = %s, Epoch = %s' %
                     (opt.name, opt.phase, opt.which_epoch))
@@ -43,5 +44,6 @@ for i, data_i in tqdm(enumerate(dataloader)):
                                    ])
             for t in range(len(generated)):
                 visuals['synthesized_image_' + str(t)] = generated[t][b]
+        # print(f'img_path[b:b + 1]: {img_path[b:b + 1]}')
         visualizer.save_images(webpage, visuals, img_path[b:b + 1])
 webpage.save()
